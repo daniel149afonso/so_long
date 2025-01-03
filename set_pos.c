@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   set_pos.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 16:34:11 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/12/31 16:26:11 by daniel149af      ###   ########.fr       */
+/*   Created: 2024/12/31 17:17:01 by daniel149af       #+#    #+#             */
+/*   Updated: 2025/01/03 16:41:36 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+void	set_position(char **map, t_game *game)
 {
-	char	**map;
+	int	i;
+	int	j;
 
-	check_arguments(argc);
-	map = read_map(argv[1]);
-	if (!map)
-		return ;
-	check_map(map);
-	return (0);
+	j = 0;
+	while (map[j])
+	{
+		i = 0;
+		while (map[j][i])
+		{
+			check_position(map[j][i], i, j, game);
+			i++;
+		}
+		j++;
+	}
+}
+
+void	player_position(char c, int i, int j, t_game *game)
+{
+	if (c == "P")
+	{
+		game->player.x = i;
+		game->player.y = j;
+	}
 }

@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 16:34:11 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/12/31 16:26:11 by daniel149af      ###   ########.fr       */
+/*   Created: 2025/01/03 15:17:46 by daniel149af       #+#    #+#             */
+/*   Updated: 2025/01/03 17:05:36 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+void	flood_fill(char **map, t_point size, t_point player)
 {
-	char	**map;
+	char	c;
+	t_point	p;
 
-	check_arguments(argc);
-	map = read_map(argv[1]);
-	if (!map)
-		return ;
-	check_map(map);
-	return (0);
+	c = map[player.y][player.x];
+	map[player.x][player.y] = 'F';
+	if (player.y > 0 && map[player.x][player.y - 1] != '1')
+	{
+
+	}
 }

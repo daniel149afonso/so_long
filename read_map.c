@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:46:17 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/12/28 14:05:03 by daniel149af      ###   ########.fr       */
+/*   Updated: 2024/12/30 15:52:41 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*read_map(char *filename)
 	i = 0;
 	map_fd = open(filename, O_RDONLY);
 	if (map_fd < 0)
-		return ;
+		ft_error("The Map can't be opened. Does your map file exist?");
 	map = ft_strdup("");
 	while (1 == 1)
 	{
