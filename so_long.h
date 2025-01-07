@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:22:59 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/03 16:37:09 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/01/06 21:13:18 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,25 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <mlx.h>
+# include <Libft/libft.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 32
+#  define BUFFER_SIZE		32
+
+#  define IMG_HEIGHT		32
+#  define IMG_WIDTH			32
+
+#  define FRONT				1
+#  define LEFT				2
+#  define RIGHT				3
+#  define BACK				4
 # endif
+
+typedef enum e_bool
+{
+	false,
+	true
+}	t_bool;
 
 typedef struct s_point
 {
@@ -27,28 +42,35 @@ typedef struct s_point
 	int	y;
 }	t_point;
 
+typedef struct s_map
+{
+	char		**full;
+	int			rows;
+	int			columns;
+	int			collect;
+	int			exit;
+	int			players;
+	t_point		player;
+}	t_map;
+
 typedef struct s_game
 {
-	int		players;
-	int		collect;
-	int		exit;
-	int		columns;
-	int		rows;
-	t_point	player;
+	void	*mlx_ptr;
+	int		movements;
+	int		player_sprite;
+	t_map	map;
+	t_bool	map_alloc;
 }	t_game;
-
-//READ MAP
-char	*read_map(char *filename);
-//CHECKS
-void	check_arguments(int argc);
-void	check_wall(char **map);
-void	check_rectangular(char **map);
-void	count_items(char **map);
+//INIT GAME
+void	ft_init_vars(t_game *game);
+//INIT MAP
+char	*ft_init_map(char *filename);
+//CHECK MAP
+void	ft_check_arguments(int argc);
+void	ft_check_map(char **map);
 //ERROR
-void	ft_error(char *str);
+void	ft_error(char *str, t_game *game);
 //UTILS
-void	ft_putstr_fd(char *s, int fd);
-char	*ft_strdup(const char *s1);
-int		ft_strlen(const char *s);
-char	*ft_strnstr(const char *haystack, const char *needle, int len);
+int		ft_strlen_v2(const char *s);
+int		is_empty_string(const char *str);
 #endif

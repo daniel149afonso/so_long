@@ -6,14 +6,16 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 14:07:49 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/03 16:38:08 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/01/06 21:04:21 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_error(char *msg)
+void	ft_error(char *msg, t_game *game)
 {
-	ft_pustr_fd(msg);
+	ft_putstr_fd(msg, 2);
+	if (game->map_alloc == true)
+		free(game->map);
 	exit();
 }
