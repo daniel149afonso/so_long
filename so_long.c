@@ -3,18 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:34:11 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/06 21:15:38 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/01/07 20:46:18 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	so_long(int argc, char **argv, char **map, t_game *game)
+void	ft_put_map(t_game *game)
 {
+	int	i;
 
+	i = 0;
+	while (game->map.full[i])
+	{
+		ft_putstr_fd(game->map.full[i], 1);
+		write(1, "\n", 1);
+		i++;
+	}
 }
 
 int	main(int argc, char **argv)
@@ -24,9 +32,10 @@ int	main(int argc, char **argv)
 	game = malloc(sizeof(t_game));
 	if (!game)
 		ft_error("Memory allocation for game failed.", game);
-	ft_check_arguments(argc);
+	ft_check_arguments(argc, argv, game);
 	ft_init_vars(game);
-	ft_init_map(argv[1]);
-	ft_check_map(game->map.full);
+	ft_init_map(argv[1], game);
+	ft_put_map(game);
+	ft_check_map(game);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:46:17 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/06 21:17:35 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/01/07 20:18:17 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ void	ft_check_arguments(int argc, char **argv, t_game *game)
 	if (argc > 2)
 		ft_error("Too many arguments, only two arguments are required!", game);
 	filename_len = ft_strlen_v2(argv[1]);
-	if (ft_strnstr(&argv[1][filename_len - 4], ".ber", 4))
-		ft_error("Wrong extension file. It should be.ber", game);
+	if (!ft_strnstr(&argv[1][filename_len - 4], ".ber", 4))
+		ft_error("Wrong extension file. It should be '.ber'", game);
 }
 
-void	*ft_init_map(char *filename, t_game *game)
+void	ft_init_map(char *filename, t_game *game)
 {
 	int		map_fd;
 	char	*map;
@@ -43,14 +43,14 @@ void	*ft_init_map(char *filename, t_game *game)
 		line = get_next_line(map_fd);
 		if (!line)
 			break ;
-		map = ft_strjoin(&map, line);
+		map = ft_strjoin(map, line);
 		if (!map)
 			ft_error("Memory allocation for line failed.", game);
 		free(line);
 		i++;
 	}
 	close(map_fd);
-	game->map.full = ft_split(map, "\n");
+	game->map.full = ft_split(map, '\n');
 	game->map_alloc = true;
 	free(map);
 }

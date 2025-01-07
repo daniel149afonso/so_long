@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 15:16:30 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/06 21:03:41 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/01/07 19:43:52 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,35 @@ int	ft_strlen_v2(const char *s)
 	return (i);
 }
 
-void	is_empty_string(const char *str, t_game *game)
+int	get_height_map(char **map)
 {
-	while (*str)
+	int	i;
+
+	i = 0;
+	while (map[i])
 	{
-		if (*str == ' ' || (*str >= 9 && *str <= 13))
-			ft_error("No space are allowed in the map.", game);
-		str++;
+		i++;
+	}
+	return (i);
+}
+
+void	is_empty_string(t_game *game)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	while (game->map.full[j])
+	{
+		i = 0;
+		while (game->map.full[j][i])
+		{
+			if (game->map.full[j][i] == ' '
+				|| (game->map.full[j][i] >= 9 && game->map.full[j][i] <= 13))
+				ft_error("No space are allowed in the map.", game);
+			i++;
+		}
+		j++;
 	}
 }
 //Is_empty_string: verifie si la chaine vide ou seulement espaces
