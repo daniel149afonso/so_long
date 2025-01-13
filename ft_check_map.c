@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 23:33:42 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/07 21:06:54 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/01/08 18:04:26 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,26 @@
 void	ft_check_wall(t_game *game)
 {
 	int	i;
-	int	j;
+	int	line;
+	int	height;
 
 	i = 0;
-	j = 0;
-	while (i < ligne)
+	line = ft_strlen_v2(game->map.full[0]);
+	height = get_height_map(game->map.full);
+	while (i < line)
 	{
 		if (game->map.full[0][i] != '1'
-			|| game->map.full[get_height_map(game->map.full) - 1][i] != '1')
+			|| game->map.full[height - 1][i] != '1')
 			ft_error("The wall is not 1!", game);
 		i++;
 	}
 	i = 0;
-	j = 0;
-	while (j < hauteur)
+	while (i < height)
 	{
-		if (game->map.full[j][0] != '1'
-			|| game->map.full[j][ft_strlen_v2(game->map.full[i]) - 1] != '1')
+		if (game->map.full[i][0] != '1'
+			|| game->map.full[i][line - 1] != '1')
 			ft_error("The wall is not 1!", game);
-		j++;
+		i++;
 	}
 }
 
@@ -93,7 +94,7 @@ void	ft_count_items(t_game *game)
 void	ft_check_map(t_game *game)
 {
 	ft_check_rectangular(game);
-	ft_check_wall(game);//SEGMENTATION FAULT tant que plus petit que la hauteur ou la ligne
-	// ft_count_items(game);
-	// is_empty_string(game);
+	ft_check_wall(game);
+	ft_count_items(game);
+	is_empty_string(game);
 }

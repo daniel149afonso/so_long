@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:22:59 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/07 20:30:24 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/01/10 18:20:45 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <sys/types.h>
-//# include <mlx.h>
+# include <X11/X.h>
+# include <X11/keysym.h>
+# include "minilibx-linux/mlx.h"
 # include "Libft/libft.h"
-
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE		32
@@ -68,6 +69,7 @@ typedef struct s_game
 
 //INIT GAME
 void	ft_init_vars(t_game *game);
+void	ft_init_mlx(t_game *game);
 
 //INIT MAP
 void	ft_init_map(char *filename, t_game *game);
