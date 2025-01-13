@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 23:33:42 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/08 18:04:26 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/01/13 17:19:32 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	ft_check_wall(t_game *game)
 	int	height;
 
 	i = 0;
-	line = ft_strlen_v2(game->map.full[0]);
-	height = get_height_map(game->map.full);
+	line = game->map.size.x;
+	height = game->map.size.y;
 	while (i < line)
 	{
 		if (game->map.full[0][i] != '1'
