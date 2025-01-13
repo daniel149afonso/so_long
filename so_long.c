@@ -6,7 +6,7 @@
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:34:11 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/13 20:48:21 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/01/13 21:31:38 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	main(int argc, char **argv)
 	ft_put_map(game->map.full);
 	ft_check_map(game);
 	set_player_position(game);
-	flood_fill(game->map.full, game->map.size, game->map.player);
-	ft_put_map(game->map.full);
-	//game->mlx_ptr = mlx_init();
+	// flood_fill(game->map.full, game->map.size, game->map.player);
+	// ft_put_map(game->map.full);
+	game->mlx_ptr = mlx_init();
 	return (0);
 }

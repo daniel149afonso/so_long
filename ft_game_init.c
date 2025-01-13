@@ -6,7 +6,7 @@
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 00:55:01 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/13 20:06:15 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/01/13 21:38:14 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,20 @@ void	ft_init_vars(t_game *game)
 // 		ft_error("Couldn't create the Window", game);
 // 	}
 // }
+void	ft_init_sprites(t_game *game)
+{
+	void	*mlx;
+
+	mlx = game->mlx_ptr;
+	game->wall = ft_new_sprite(mlx, WALL_XPM, game);
+	game->floor = ft_new_sprite(mlx, FLOOR_XPM, game);
+	game->collect = ft_new_sprite(mlx, COLLECT_XPM, game);
+	game->player_front = ft_new_sprite(mlx, PLAYER_FRONT_XPM, game);
+	game->floor = ft_new_sprite(mlx, FLOOR_XPM, game);
+	game->floor = ft_new_sprite(mlx, FLOOR_XPM, game);
+	game->floor = ft_new_sprite(mlx, FLOOR_XPM, game);
+	game->floor = ft_new_sprite(mlx, FLOOR_XPM, game);
+}
 //FT_INIT_MLX:
 //initialise le systeme de gestion graphique
 //Elle configure la fenetre
