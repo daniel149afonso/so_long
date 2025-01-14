@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:22:59 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/10 18:20:45 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/01/13 19:59:56 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,11 @@ typedef struct s_point
 typedef struct s_map
 {
 	char		**full;
-	int			rows;
-	int			columns;
 	int			collect;
 	int			exit;
 	int			players;
 	t_point		player;
+	t_point		size;
 }	t_map;
 
 typedef struct s_game
@@ -78,6 +77,12 @@ void	ft_init_map(char *filename, t_game *game);
 void	ft_check_arguments(int argc, char **argv, t_game *game);
 void	ft_check_map(t_game *game);
 
+//SET POSITION
+void	set_player_position(t_game *game);
+
+//FLOOD FILL
+void	flood_fill(char **map, t_point size, t_point p);
+
 //ERROR
 void	ft_error(char *str, t_game *game);
 void	ft_free_map(t_game *game);
@@ -86,6 +91,7 @@ void	ft_free_map(t_game *game);
 int		ft_strlen_v2(const char *s);
 int		get_height_map(char **map);
 void	is_empty_string(t_game *game);
+void	ft_put_map(char **map);
 
 //GET_NEXT_LINE
 char	*get_next_line(int fd);
