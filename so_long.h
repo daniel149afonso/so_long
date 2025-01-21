@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:22:59 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/21 15:14:04 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/01/21 20:00:09 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,36 @@
 # include "minilibx-linux/mlx.h"
 # include "Libft/libft.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE		32
+# define BUFFER_SIZE		32
 
-#  define IMG_HEIGHT		32
-#  define IMG_WIDTH			32
+# define IMG_HEIGHT		32
+# define IMG_WIDTH			32
 
-#  define FRONT				1
-#  define LEFT				2
-#  define RIGHT				3
-#  define BACK				4
+# define PLAYER			'P'
+# define WALL				'1'
+# define FLOOR				'0'
+# define COINS				'C'
+# define MAP_EXIT			'E'
+
+# define FRONT				1
+# define LEFT				2
+# define RIGHT				3
+# define BACK				4
+
+# define KEY_UP				65362
+# define KEY_LEFT			65361
+# define KEY_RIGHT			65363
+# define KEY_DOWN			65364
+
+# define KEY_W				119
+# define KEY_A				97
+# define KEY_S				115
+# define KEY_D				100
+# define KEY_ESC			65307
 
 # define WALL_XPM			"assets/sprites/wall.xpm"
 # define FLOOR_XPM			"assets/sprites/floor.xpm"
-# define COLLECT_XPM			"assets/sprites/coin-bag.xpm"
+# define COLLECT_XPM		"assets/sprites/coin-bag.xpm"
 # define PLAYER_FRONT_XPM	"assets/sprites/player/front.xpm"
 # define PLAYER_LEFT_XPM	"assets/sprites/player/left.xpm"
 # define PLAYER_RIGHT_XPM	"assets/sprites/player/right.xpm"
@@ -44,13 +60,7 @@
 # define OPEN_EXIT_XPM		"assets/sprites/open-exit.xpm"
 # define EXIT_CLOSED_XPM	"assets/sprites/exit-closed.xpm"
 
-# define KEY_W				87
-# define KEY_A				65
-# define KEY_S				119
-# define KEY_D				119
-
-# endif
-
+//SUPPRIMER
 typedef struct s_data
 {
 	void	*img;
@@ -131,7 +141,11 @@ void	is_item_access(t_game *game);
 int		ft_handle_input(int key, t_game *game);
 int		key_hook(int keycode, t_game *game);
 
+//CLOSE GAME
+void	ft_close_game(t_game *game);
+
 //ERROR
+void	ft_free_all_memory(t_game *game);
 void	ft_error(char *str, t_game *game);
 void	ft_free_map(t_game *game);
 

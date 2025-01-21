@@ -3,45 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 15:17:46 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/17 15:07:53 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/01/21 16:06:47 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-// void	flood_fill(char **map, t_point size, t_point begin)
-// {
-// 	t_point	p;
-
-// 	map[begin.x][begin.y] = 'F';
-// 	if (map[begin.x][begin.y - 1] != 'F' && map[begin.x][begin.y - 1] != '1')
-// 	{
-// 		p.x = begin.x;
-// 		p.y = begin.y - 1;
-// 		flood_fill(map, size, p);
-// 	}
-// 	if (map[begin.x][begin.y + 1] != 'F' && map[begin.x][begin.y + 1] != '1')
-// 	{
-// 		p.x = begin.x;
-// 		p.y = begin.y + 1;
-// 		flood_fill(map, size, p);
-// 	}
-// 	if (map[begin.x - 1][begin.y] != 'F' && map[begin.x - 1][begin.y] != '1')
-// 	{
-// 		p.x = begin.x - 1;
-// 		p.y = begin.y;
-// 		flood_fill(map, size, p);
-// 	}
-// 	if (map[begin.x + 1][begin.y] != 'F' && map[begin.x + 1][begin.y] != '1')
-// 	{
-// 		p.x = begin.x + 1;
-// 		p.y = begin.y;
-// 		flood_fill(map, size, p);
-// 	}
-// }
 
 void	move_y(t_game *game, t_point p, t_point begin)
 {

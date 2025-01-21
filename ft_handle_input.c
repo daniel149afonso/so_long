@@ -3,33 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_input.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:26:52 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/21 15:20:05 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/01/21 21:23:41 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_handle_input(int key, t_game *game)
+int	ft_player_move(t_game *game, int new_y, int new_x, int dir)
 {
-	if (key == 65 || key == KEY_W)
-	printf("A");
-	// 	ft_player_move(game, game->map.player.y - 1, game->map.player.x, BACK);
-	// if (key == KEY_LEFT || key == KEY_A)
-	// 	ft_player_move(game, game->map.player.y - 1, game->map.player.x, LEFT);
-	// if (key == KEY_RIGHT || key == KEY_D)
-	// 	ft_player_move(game, game->map.player.y, game->map.player.x, RIGHT);
-	// if (key == KEY_DOWN || key == KEY_S)
-	// 	ft_player_move(game, game->map.player.y - 1, game->map.player.x, BACK);
-	// if (key == KEY_Q || key == KEY_ESC)
-	// 	ft_close_game(game);
-	//printf("Hello from key_hook!\n");
+	int	last_x;
+	int	last_y;
+
+	if (game->map.full[new_y][new_x] == MAP_EXIT || )
+	game->map.player.y = y;
+	game->map.player.x = x;
+	printf("y: %d, x: %d\n", game->map.player.y, game->map.player.x);
 }
 
-int	key_hook(int keycode, t_game *game)
+int	ft_handle_input(int key, t_game *game)
 {
-	printf("Hello from key_hook!\n");
-	return (0);
+	if (key == KEY_UP || key == KEY_W)
+		ft_player_move(game, game->map.player.y - 1, game->map.player.x, BACK);
+	if (key == KEY_LEFT || key == KEY_A)
+		ft_player_move(game, game->map.player.y, game->map.player.x - 1, LEFT);
+	if (key == KEY_RIGHT || key == KEY_D)
+		ft_player_move(game, game->map.player.y, game->map.player.x + 1, RIGHT);
+	if (key == KEY_DOWN || key == KEY_S)
+		ft_player_move(game, game->map.player.y + 1, game->map.player.x, BACK);
+	if (key == KEY_ESC)
+		ft_close_game(game);
 }
+
+
