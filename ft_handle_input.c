@@ -3,14 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_input.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:26:52 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/25 16:52:29 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/01/26 20:44:30 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	ft_show_movements(int nb)
+{
+	char	*movements;
+
+	movements = ft_itoa(nb);
+	movements = ft_strjoin("Movements: ", movements);
+	ft_putstr_fd(movements, 1);
+	write(1, "\n", 1);
+	free(movements);
+}
 
 void	ft_player_move(t_game *game, int new_y, int new_x, int dir)
 {
@@ -19,32 +30,21 @@ void	ft_player_move(t_game *game, int new_y, int new_x, int dir)
 
 	last_x = game->map.player.x;
 	last_y = game->map.player.y;
-	if (game->map.full[new_y][new_x] == MAP_EXIT || game->map.collect == 0)
-	{
-		// game->map.full[last_y][last_x] = FLOOR;
-		// game->map.player.y = new_y;
-		// game->map.player.x = new_x;
-		// game->map.full[game->map.player.y][game->map.player.x] = PLAYER;
-		// ft_put_map(game->map.full);
-		// printf("y: %d, x: %d\n", game->map.player.y, game->map.player.x);
-		// sleep(2);
+	if (game->map.full[new_y][new_x] == MAP_EXIT && game->map.collect == 0)
 		ft_close_game(game);
-	}
-
 	else if (game->map.full[new_y][new_x] == COLLECT
 	|| game->map.full[new_y][new_x] == FLOOR)
 	{
+		if (game->map.full[new_y][new_x] == COLLECT)
+			game->map.collect--;
 		game->map.full[last_y][last_x] = FLOOR;
 		game->map.player.y = new_y;
 		game->map.player.x = new_x;
 		game->map.full[game->map.player.y][game->map.player.x] = PLAYER;
 		game->movements++;
-		if (game->map.full[new_y][new_x] == COLLECT)
-		{
-			game->map.collect--;
-		}
-		// ft_put_map(game->map.full);
-		// printf("y: %d, x: %d\n", game->map.player.y, game->map.player.x);
+		ft_put_map(game->map.full);
+		printf("y: %d, x: %d\n", game->map.player.y, game->map.player.x);
+		ft_show_movements(game->movements);
 	}
 
 }

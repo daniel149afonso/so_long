@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:22:59 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/25 22:03:07 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/01/26 18:55:57 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 
 # define BUFFER_SIZE		32
 
-# define IMG_HEIGHT			16
-# define IMG_WIDTH			16
+# define IMG_HEIGHT			32
+# define IMG_WIDTH			32
 
 # define PLAYER				'P'
 # define WALL				'1'
@@ -50,15 +50,14 @@
 # define KEY_D				100
 # define KEY_ESC			65307
 
-# define WALL_XPM			"assets/sprites/wall.xpm"
+# define WALL_XPM			"assets/sprites/wall/wall.xpm"
 # define FLOOR_XPM			"assets/sprites/floor/floor.xpm"
-# define COLLECT_XPM		"assets/sprites/coin-bag.xpm"
+# define COLLECT_XPM		"assets/sprites/collect/collect.xpm"
 # define PLAYER_FRONT_XPM	"assets/sprites/player/front.xpm"
 # define PLAYER_LEFT_XPM	"assets/sprites/player/left.xpm"
 # define PLAYER_RIGHT_XPM	"assets/sprites/player/right.xpm"
 # define PLAYER_BACK_XPM	"assets/sprites/player/back.xpm"
-# define OPEN_EXIT_XPM		"assets/sprites/open-exit.xpm"
-# define EXIT_CLOSED_XPM	"assets/sprites/exit-closed.xpm"
+# define EXIT_XPM	"assets/sprites/exit/exit.xpm"
 
 //SUPPRIMER
 typedef struct s_data
@@ -110,8 +109,7 @@ typedef struct s_game
 	t_image		wall;
 	t_image		floor;
 	t_image		collect;
-	t_image		open_exit;
-	t_image		exit_closed;
+	t_image		exit;
 	t_image		player_front;
 	t_image		player_left;
 	t_image		player_right;
@@ -143,7 +141,7 @@ int		ft_handle_input(int key, t_game *game);
 int		key_hook(int keycode, t_game *game);
 
 //DISPLAY IMAGE
-void	ft_display_img(t_image sprite, t_game *game);
+void	ft_display_img(t_game *game);
 
 //CLOSE GAME
 void	ft_close_game(t_game *game);
