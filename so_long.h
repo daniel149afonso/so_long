@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:22:59 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/21 20:00:09 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/01/25 22:03:07 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@
 
 # define BUFFER_SIZE		32
 
-# define IMG_HEIGHT		32
-# define IMG_WIDTH			32
+# define IMG_HEIGHT			16
+# define IMG_WIDTH			16
 
-# define PLAYER			'P'
+# define PLAYER				'P'
 # define WALL				'1'
 # define FLOOR				'0'
-# define COINS				'C'
+# define COLLECT			'C'
 # define MAP_EXIT			'E'
 
 # define FRONT				1
@@ -51,7 +51,7 @@
 # define KEY_ESC			65307
 
 # define WALL_XPM			"assets/sprites/wall.xpm"
-# define FLOOR_XPM			"assets/sprites/floor.xpm"
+# define FLOOR_XPM			"assets/sprites/floor/floor.xpm"
 # define COLLECT_XPM		"assets/sprites/coin-bag.xpm"
 # define PLAYER_FRONT_XPM	"assets/sprites/player/front.xpm"
 # define PLAYER_LEFT_XPM	"assets/sprites/player/left.xpm"
@@ -121,6 +121,7 @@ typedef struct s_game
 //INIT GAME
 void	ft_init_vars(t_game *game);
 void	ft_init_mlx(t_game *game);
+void	ft_init_sprites(t_game *game);
 
 //INIT MAP
 void	ft_init_map(char *filename, t_game *game);
@@ -141,6 +142,9 @@ void	is_item_access(t_game *game);
 int		ft_handle_input(int key, t_game *game);
 int		key_hook(int keycode, t_game *game);
 
+//DISPLAY IMAGE
+void	ft_display_img(t_image sprite, t_game *game);
+
 //CLOSE GAME
 void	ft_close_game(t_game *game);
 
@@ -153,7 +157,7 @@ void	ft_free_map(t_game *game);
 int		ft_strlen_v2(const char *s);
 int		get_height_map(char **map);
 void	is_empty_string(t_game *game);
-void	ft_put_map(char **map);
+void	ft_put_map(char **map); // A SUPPRIMER
 
 //GET_NEXT_LINE
 char	*get_next_line(int fd);

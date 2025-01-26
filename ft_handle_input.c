@@ -3,24 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_input.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:26:52 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/21 21:23:41 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/01/25 16:52:29 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_player_move(t_game *game, int new_y, int new_x, int dir)
+void	ft_player_move(t_game *game, int new_y, int new_x, int dir)
 {
 	int	last_x;
 	int	last_y;
 
-	if (game->map.full[new_y][new_x] == MAP_EXIT || )
-	game->map.player.y = y;
-	game->map.player.x = x;
-	printf("y: %d, x: %d\n", game->map.player.y, game->map.player.x);
+	last_x = game->map.player.x;
+	last_y = game->map.player.y;
+	if (game->map.full[new_y][new_x] == MAP_EXIT || game->map.collect == 0)
+	{
+		// game->map.full[last_y][last_x] = FLOOR;
+		// game->map.player.y = new_y;
+		// game->map.player.x = new_x;
+		// game->map.full[game->map.player.y][game->map.player.x] = PLAYER;
+		// ft_put_map(game->map.full);
+		// printf("y: %d, x: %d\n", game->map.player.y, game->map.player.x);
+		// sleep(2);
+		ft_close_game(game);
+	}
+
+	else if (game->map.full[new_y][new_x] == COLLECT
+	|| game->map.full[new_y][new_x] == FLOOR)
+	{
+		game->map.full[last_y][last_x] = FLOOR;
+		game->map.player.y = new_y;
+		game->map.player.x = new_x;
+		game->map.full[game->map.player.y][game->map.player.x] = PLAYER;
+		game->movements++;
+		if (game->map.full[new_y][new_x] == COLLECT)
+		{
+			game->map.collect--;
+		}
+		// ft_put_map(game->map.full);
+		// printf("y: %d, x: %d\n", game->map.player.y, game->map.player.x);
+	}
+
 }
 
 int	ft_handle_input(int key, t_game *game)
@@ -35,6 +61,7 @@ int	ft_handle_input(int key, t_game *game)
 		ft_player_move(game, game->map.player.y + 1, game->map.player.x, BACK);
 	if (key == KEY_ESC)
 		ft_close_game(game);
+	return (0);
 }
 
 

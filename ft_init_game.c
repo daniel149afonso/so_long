@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 00:55:01 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/21 15:12:07 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/01/25 22:02:16 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,14 @@ void	ft_init_vars(t_game *game)
 
 void	ft_init_mlx(t_game *game)
 {
-	//void	*img;
-
 	game->mlx_ptr = mlx_init();
 	if (game->mlx_ptr == NULL)
 	{
 		free(game->mlx_ptr);
 		ft_error("Couldn't find mlx pointer. Try it using a VNC.", game);
 	}
-	game->win_ptr = mlx_new_window(game->mlx_ptr,
-	640, 480, "so_long");
+	game->win_ptr = mlx_new_window(game->mlx_ptr, \
+	game->map.size.x * IMG_WIDTH, game->map.size.y * IMG_HEIGHT, "so_long");
 	if (game->mlx_ptr == NULL)
 	{
 		free(game->mlx_ptr);
@@ -42,31 +40,33 @@ void	ft_init_mlx(t_game *game)
 	}
 }
 
-// void	ft_init_sprites(t_game *game)
-// {
-// 	void	*mlx;
+t_image	ft_new_sprite(void *mlx, char *path, t_game *game)
+{
+	t_image	sprite;
 
-// 	mlx = game->mlx_ptr;
-// 	game->wall = ft_new_sprite(mlx, WALL_XPM, game);
-// 	game->floor = ft_new_sprite(mlx, FLOOR_XPM, game);
-// 	game->collect = ft_new_sprite(mlx, COLLECT_XPM, game);
-// 	game->player_front = ft_new_sprite(mlx, PLAYER_FRONT_XPM, game);
-// 	game->player_left = ft_new_sprite(mlx, PLAYER_LEFT_XPM, game);
-// 	game->player_right = ft_new_sprite(mlx, PLAYER_RIGHT_XPM, game);
-// 	game->player_back = ft_new_sprite(mlx, PLAYER_BACK_XPM, game);
-// 	game->open_exit = ft_new_sprite(mlx, OPEN_EXIT_XPM, game);
-// 	game->exit_closed = ft_new_sprite(mlx, EXIT_CLOSED_XPM, game);
-// }
+	sprite.xpm_ptr = mlx_xpm_file_to_image(mlx, path, &sprite.x, &sprite.y);
+	if (sprite.xpm_ptr == NULL)
+		ft_error("Couldn't find a sprite. Does it exist?", game);
+	printf("Image chargée avec succès : %dx%d\n", sprite.x, sprite.y);
+	ft_display_img(sprite, game);
+	return (sprite);
+}
 
-// t_image	ft_new_sprite(void *mlx, char *path, t_game *game)
-// {
-// 	t_image	sprite;
+void	ft_init_sprites(t_game *game)
+{
+	void	*mlx;
 
-// 	sprite.xpm_ptr = mlx_xpm_file_to_image(mlx, path, &sprite.x, &sprite.y);
-// 	if (sprite.xpm_ptr == NULL)
-// 		ft_error("Couldn't find a sprite. Does it exist?", game);
-// 	return (sprite);
-// }
+	mlx = game->mlx_ptr;
+	// game->wall = ft_new_sprite(mlx, WALL_XPM, game);
+	game->floor = ft_new_sprite(mlx, FLOOR_XPM, game);
+	// game->collect = ft_new_sprite(mlx, COLLECT_XPM, game);
+	//game->player_front = ft_new_sprite(mlx, PLAYER_FRONT_XPM, game);
+	// game->player_left = ft_new_sprite(mlx, PLAYER_LEFT_XPM, game);
+	// game->player_right = ft_new_sprite(mlx, PLAYER_RIGHT_XPM, game);
+	// game->player_back = ft_new_sprite(mlx, PLAYER_BACK_XPM, game);
+	// game->open_exit = ft_new_sprite(mlx, OPEN_EXIT_XPM, game);
+	// game->exit_closed = ft_new_sprite(mlx, EXIT_CLOSED_XPM, game);
+}
 //FT_INIT_MLX:
 //initialise le systeme de gestion graphique
 //Elle configure la fenetre

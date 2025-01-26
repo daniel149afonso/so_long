@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:34:11 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/21 17:32:09 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:21:47 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	main(int argc, char **argv)
 	ft_check_arguments(argc, argv, game);
 	ft_init_map(argv[1], game);
 	ft_init_vars(game);
+	printf("Avant Check:\n");
 	ft_put_map(game->map.full);
 	ft_check_map(game);
 	set_player_position(game);
@@ -45,8 +46,10 @@ int	main(int argc, char **argv)
 	is_item_access(game);
 	ft_init_map(argv[1], game);
 	ft_count_items(game);
+	printf("Après Check:\n");
 	ft_put_map(game->map.full);
 	ft_init_mlx(game);
+	ft_init_sprites(game);
 	mlx_hook(game->win_ptr, KeyPress, KeyPressMask, ft_handle_input, game);
 	mlx_loop(game->mlx_ptr);
 	return (0);
