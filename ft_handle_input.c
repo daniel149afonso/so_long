@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_input.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:26:52 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/29 01:19:57 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/01/29 20:19:08 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,10 @@ void	ft_player_move(t_game *game, int new_y, int new_x, int player_sprite)
 			game->map.collect--;
 		game->map.player.y = new_y;
 		game->map.player.x = new_x;
-		game->map.full[new_y][new_y] = PLAYER;
 		game->movements++;
-		ft_put_map(game->map.full);
-		printf("y: %d, x: %d\n", game->map.player.y, game->map.player.x);
 		ft_show_movements(game->movements);
-		ft_display_map(game);
 	}
+	ft_display_map(game);
 }
 
 int	ft_handle_input(int key, t_game *game)
@@ -62,10 +59,8 @@ int	ft_handle_input(int key, t_game *game)
 	if (key == KEY_RIGHT || key == KEY_D)
 		ft_player_move(game, game->map.player.y, game->map.player.x + 1, RIGHT);
 	if (key == KEY_DOWN || key == KEY_S)
-		ft_player_move(game, game->map.player.y + 1, game->map.player.x, BACK);
+		ft_player_move(game, game->map.player.y + 1, game->map.player.x, FRONT);
 	if (key == KEY_ESC)
 		ft_close_game(game);
 	return (0);
 }
-
-

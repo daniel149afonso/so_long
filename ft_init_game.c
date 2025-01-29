@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_game.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 00:55:01 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/29 01:17:31 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/01/29 16:18:25 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ void	ft_init_sprites(t_game *game)
 	game->collect = ft_new_sprite(mlx, COLLECT_XPM, game);
 	game->player_front = ft_new_sprite(mlx, PLAYER_FRONT_XPM, game);
 	game->player_left = ft_new_sprite(mlx, PLAYER_LEFT_XPM, game);
-	// game->player_right = ft_new_sprite(mlx, PLAYER_RIGHT_XPM, game);
-	// game->player_back = ft_new_sprite(mlx, PLAYER_BACK_XPM, game);
+	game->player_right = ft_new_sprite(mlx, PLAYER_RIGHT_XPM, game);
+	game->player_back = ft_new_sprite(mlx, PLAYER_BACK_XPM, game);
 	game->exit = ft_new_sprite(mlx, EXIT_XPM, game);
 }
 //FT_INIT_MLX:

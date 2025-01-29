@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:22:59 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/28 19:00:20 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/01/29 19:36:43 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define IMG_WIDTH			32
 
 # define PLAYER				'P'
+# define PATROL				'M'
 # define WALL				'1'
 # define FLOOR				'0'
 # define COLLECT			'C'
@@ -85,6 +86,7 @@ typedef struct s_map
 	int			exit;
 	int			players;
 	t_point		player;
+	t_point		patrol;
 	t_point		size;
 }	t_map;
 

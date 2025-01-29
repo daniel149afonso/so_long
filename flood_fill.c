@@ -6,7 +6,7 @@
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 15:17:46 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/21 16:06:47 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/01/29 20:19:38 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	move_y(t_game *game, t_point p, t_point begin)
 {
-
 	p.x = begin.x;
 	p.y = begin.y - 1;
-	if (p.y >= 0 && game->map.full[p.y][p.x] != 'F' && game->map.full[p.y][p.x] != '1')
+	if (p.y >= 0 && game->map.full[p.y][p.x]
+		!= 'F' && game->map.full[p.y][p.x] != '1')
 		flood_fill(game, p);
-
 	p.x = begin.x;
 	p.y = begin.y + 1;
-	if (p.y < game->map.size.y && game->map.full[p.y][p.x] != 'F' && game->map.full[p.y][p.x] != '1')
+	if (p.y < game->map.size.y && game->map.full[p.y][p.x]
+		!= 'F' && game->map.full[p.y][p.x] != '1')
 		flood_fill(game, p);
 }
 
@@ -30,11 +30,13 @@ void	move_x(t_game *game, t_point p, t_point begin)
 {
 	p.x = begin.x - 1;
 	p.y = begin.y;
-	if (p.x >= 0 && game->map.full[p.y][p.x] != 'F' && game->map.full[p.y][p.x] != '1')
+	if (p.x >= 0 && game->map.full[p.y][p.x]
+		!= 'F' && game->map.full[p.y][p.x] != '1')
 		flood_fill(game, p);
 	p.x = begin.x + 1;
 	p.y = begin.y;
-	if (p.x < game->map.size.x && game->map.full[p.y][p.x] != 'F' && game->map.full[p.y][p.x] != '1')
+	if (p.x < game->map.size.x && game->map.full[p.y][p.x]
+		!= 'F' && game->map.full[p.y][p.x] != '1')
 		flood_fill(game, p);
 }
 
@@ -62,15 +64,14 @@ void	flood_fill(t_game *game, t_point begin)
 {
 	t_point	p;
 
-	if (begin.x < 0 || begin.x >= game->map.size.x || begin.y < 0 || begin.y >= game->map.size.y)
+	if (begin.x < 0 || begin.x >= game->map.size.x
+		|| begin.y < 0 || begin.y >= game->map.size.y)
 		return ;
-	if (game->map.full[begin.y][begin.x] == 'F' || game->map.full[begin.y][begin.x] == '1')
+	if (game->map.full[begin.y][begin.x] == 'F'
+		|| game->map.full[begin.y][begin.x] == '1')
 		return ;
 	is_collect_exit(game, begin);
 	game->map.full[begin.y][begin.x] = 'F';
-	//ft_put_map(game->map.full);
-	//write(1, "\n", 1);
-	//printf("Collect: %d, Exit: %d\n", game->map.collect, game->map.exit);
 	move_y(game, p, begin);
 	move_x(game, p, begin);
 }

@@ -6,7 +6,7 @@
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 14:07:49 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/21 17:23:17 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/01/29 20:14:21 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	ft_free_map(t_game *game)
 		free(game->map.full);
 	}
 }
-
 
 void	ft_error(char *msg, t_game *game)
 {
