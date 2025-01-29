@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:34:11 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/26 17:20:43 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/01/29 01:18:43 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,10 @@ int	main(int argc, char **argv)
 	ft_put_map(game->map.full);
 	ft_init_mlx(game);
 	ft_init_sprites(game);
-	ft_display_img(game);
 	mlx_hook(game->win_ptr, KeyPress, KeyPressMask, ft_handle_input, game);
+	mlx_hook(game->win_ptr, DestroyNotify,
+		ButtonPressMask, ft_close_game, game);
+	mlx_hook(game->win_ptr, Expose, ExposureMask, ft_display_map, game);
 	mlx_loop(game->mlx_ptr);
 	return (0);
 }

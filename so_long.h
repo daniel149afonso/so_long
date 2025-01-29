@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:22:59 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/26 18:55:57 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/01/28 19:00:20 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,6 @@
 # define PLAYER_RIGHT_XPM	"assets/sprites/player/right.xpm"
 # define PLAYER_BACK_XPM	"assets/sprites/player/back.xpm"
 # define EXIT_XPM	"assets/sprites/exit/exit.xpm"
-
-//SUPPRIMER
-typedef struct s_data
-{
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}	t_data;
 
 typedef enum e_bool
 {
@@ -139,12 +129,13 @@ void	is_item_access(t_game *game);
 //HANDLE INPUT
 int		ft_handle_input(int key, t_game *game);
 int		key_hook(int keycode, t_game *game);
+void	ft_show_movements(int nb);
 
 //DISPLAY IMAGE
-void	ft_display_img(t_game *game);
+int		ft_display_map(t_game *game);
 
 //CLOSE GAME
-void	ft_close_game(t_game *game);
+int		ft_close_game(t_game *game);
 
 //ERROR
 void	ft_free_all_memory(t_game *game);

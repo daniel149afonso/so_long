@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_game.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 00:55:01 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/26 19:55:46 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/01/29 01:17:31 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_init_vars(t_game *game)
 	game->movements = 0;
 	game->map.size.x = ft_strlen_v2(game->map.full[0]);
 	game->map.size.y = get_height_map(game->map.full);
-	game->player_sprite = RIGHT;
+	game->player_sprite = FRONT;
 }
 
 void	ft_init_mlx(t_game *game)
@@ -60,7 +60,7 @@ void	ft_init_sprites(t_game *game)
 	game->floor = ft_new_sprite(mlx, FLOOR_XPM, game);
 	game->collect = ft_new_sprite(mlx, COLLECT_XPM, game);
 	game->player_front = ft_new_sprite(mlx, PLAYER_FRONT_XPM, game);
-	// game->player_left = ft_new_sprite(mlx, PLAYER_LEFT_XPM, game);
+	game->player_left = ft_new_sprite(mlx, PLAYER_LEFT_XPM, game);
 	// game->player_right = ft_new_sprite(mlx, PLAYER_RIGHT_XPM, game);
 	// game->player_back = ft_new_sprite(mlx, PLAYER_BACK_XPM, game);
 	game->exit = ft_new_sprite(mlx, EXIT_XPM, game);
