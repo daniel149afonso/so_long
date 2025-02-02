@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:46:17 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/07 20:18:17 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/02/02 16:59:55 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,27 +30,41 @@ void	ft_init_map(char *filename, t_game *game)
 {
 	int		map_fd;
 	char	*map;
+
+	map = NULL;
+	map_fd = open(filename, O_RDONLY);
+	if (map_fd < 0)
+		ft_error("The Map can't be opened. Does your map file exist?", game);
+	if (game->map_alloc)
+		ft_free_map(game);
+	ft_get_map(game, &map, map_fd);
+	close(map_fd);
+	game->map.full = ft_split(map, '\n');
+	if (!game->map.full)
+		ft_error("Failed to allocate full map with split function", game);
+	game->map_alloc = true;
+	free(map);
+}
+
+void	ft_get_map(t_game *game, char **map, int map_fd)
+{
+	char	*tmp;
 	char	*line;
 	int		i;
 
 	i = 0;
-	map_fd = open(filename, O_RDONLY);
-	if (map_fd < 0)
-		ft_error("The Map can't be opened. Does your map file exist?", game);
-	map = ft_strdup("");
+	*map = ft_strdup("");
 	while (1)
 	{
 		line = get_next_line(map_fd);
 		if (!line)
 			break ;
-		map = ft_strjoin(map, line);
-		if (!map)
+		tmp = *map;
+		*map = ft_strjoin(*map, line);
+		free(tmp);
+		if (!*map)
 			ft_error("Memory allocation for line failed.", game);
 		free(line);
 		i++;
 	}
-	close(map_fd);
-	game->map.full = ft_split(map, '\n');
-	game->map_alloc = true;
-	free(map);
 }

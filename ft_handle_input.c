@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_input.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:26:52 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/29 20:19:08 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/01/31 18:03:27 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 void	ft_show_movements(int nb)
 {
 	char	*movements;
+	char	*sentence;
 
 	movements = ft_itoa(nb);
-	movements = ft_strjoin("Movements: ", movements);
-	ft_putstr_fd(movements, 1);
+	sentence = ft_strjoin("Movements: ", movements);
+	ft_putstr_fd(sentence, 1);
 	write(1, "\n", 1);
 	free(movements);
+	free(sentence);
 }
 
 void	ft_player_move(t_game *game, int new_y, int new_x, int player_sprite)

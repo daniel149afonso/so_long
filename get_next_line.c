@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 17:52:23 by daafonso          #+#    #+#             */
-/*   Updated: 2025/01/07 20:07:05 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/01/31 15:57:58 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_next(char *text)
 	{
 		new_text[j] = text[i + j];
 		j++;
-	}	
+	}
 	free(text);
 	return (new_text);
 }
@@ -143,7 +143,7 @@ char	*get_next_line(int fd)
 //------------------------------------------------------
 //READ_FILE: trouve la premiere ligne et s'arrette au \n
 //2 Conditions de sorties: fin du texte ou \n trouvé(avec char apres)
-//text = calloc(1,1) initialise l'espace mémoire à 0, 
+//text = calloc(1,1) initialise l'espace mémoire à 0,
 //donc text pointe alors vers une chaîne vide.
 //bytes_read = read(fd, buffer, BUFFER_SIZE)
 //si bytes_read = 0, on atteint la fin du texte
@@ -155,7 +155,7 @@ char	*get_next_line(int fd)
 // avant "blablabla\n salut les amis" -> apres "blabla\n"
 //------------------------------------------------------
 //FT_NEXT: recuperer le text sans la ligne du debut
-//avant text="blabla\n salut les amis" 
+//avant text="blabla\n salut les amis"
 //-> apres "salut les amis"
 //---------------------------------------------------------
 //---------------------------------------------------------

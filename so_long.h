@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:22:59 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/29 19:36:43 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/01/31 17:30:58 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@
 # define IMG_WIDTH			32
 
 # define PLAYER				'P'
-# define PATROL				'M'
 # define WALL				'1'
 # define FLOOR				'0'
 # define COLLECT			'C'
@@ -86,7 +85,6 @@ typedef struct s_map
 	int			exit;
 	int			players;
 	t_point		player;
-	t_point		patrol;
 	t_point		size;
 }	t_map;
 
@@ -115,6 +113,7 @@ void	ft_init_sprites(t_game *game);
 
 //INIT MAP
 void	ft_init_map(char *filename, t_game *game);
+void	ft_get_map(t_game *game, char **map, int map_fd);
 
 //CHECK MAP
 void	ft_check_arguments(int argc, char **argv, t_game *game);
@@ -143,6 +142,7 @@ int		ft_close_game(t_game *game);
 void	ft_free_all_memory(t_game *game);
 void	ft_error(char *str, t_game *game);
 void	ft_free_map(t_game *game);
+void	ft_destroy_img(t_game *game);
 
 //UTILS
 int		ft_strlen_v2(const char *s);

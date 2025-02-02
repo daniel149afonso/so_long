@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_game.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 00:55:01 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/29 16:18:25 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/02/02 16:44:22 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,12 @@ void	ft_init_mlx(t_game *game)
 {
 	game->mlx_ptr = mlx_init();
 	if (game->mlx_ptr == NULL)
-	{
-		free(game->mlx_ptr);
 		ft_error("Couldn't find mlx pointer. Try it using a VNC.", game);
-	}
 	game->win_ptr = mlx_new_window(game->mlx_ptr, \
 	game->map.size.x * IMG_WIDTH, game->map.size.y * IMG_HEIGHT, "so_long");
-	if (game->mlx_ptr == NULL)
+	if (game->win_ptr == NULL)
 	{
+		mlx_destroy_display(game->mlx_ptr);
 		free(game->mlx_ptr);
 		ft_error("Couldn't create the Window", game);
 	}

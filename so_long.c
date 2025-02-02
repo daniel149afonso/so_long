@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:34:11 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/29 20:16:35 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/01/31 15:35:22 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	main(int argc, char **argv)
 		ButtonPressMask, ft_close_game, game);
 	mlx_hook(game->win_ptr, Expose, ExposureMask, ft_display_map, game);
 	mlx_loop(game->mlx_ptr);
+	ft_free_all_memory(game);
 	return (0);
 }
 //mlx_hook: permet de se connecter a des events
