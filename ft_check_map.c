@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 23:33:42 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/10 16:57:12 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/02/10 17:54:15 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,5 @@ void	ft_check_map(t_game *game)
 	ft_check_rectangular(game);
 	ft_check_wall(game);
 	ft_count_items(game);
-	is_empty_string(game);
+	ft_check_chars(game);
 }

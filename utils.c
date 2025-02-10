@@ -6,7 +6,7 @@
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 15:16:30 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/07 19:43:52 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:58:33 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,11 @@ int	get_height_map(char **map)
 	return (i);
 }
 
-void	is_empty_string(t_game *game)
+void	ft_check_chars(t_game *game)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	char	c;
 
 	j = 0;
 	while (game->map.full[j])
@@ -47,12 +48,15 @@ void	is_empty_string(t_game *game)
 		i = 0;
 		while (game->map.full[j][i])
 		{
-			if (game->map.full[j][i] == ' '
-				|| (game->map.full[j][i] >= 9 && game->map.full[j][i] <= 13))
+			c = game->map.full[j][i];
+			if (c == ' ' || (c >= 9 && c <= 13))
 				ft_error("No space are allowed in the map.", game);
+			if (c != 'P' && c != '0' && c != '1' && c != 'C' && c != 'E')
+				ft_error("Only 0, 1, C, P and E are valid characters.", game);
 			i++;
 		}
 		j++;
 	}
 }
+
 //Is_empty_string: verifie si la chaine vide ou seulement espaces
