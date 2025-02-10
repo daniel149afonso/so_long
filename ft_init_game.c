@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 00:55:01 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/02 16:44:22 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/02/10 17:00:54 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ t_image	ft_new_sprite(void *mlx, char *path, t_game *game)
 	sprite.xpm_ptr = mlx_xpm_file_to_image(mlx, path, &sprite.x, &sprite.y);
 	if (sprite.xpm_ptr == NULL)
 		ft_error("Couldn't find a sprite. Does it exist?", game);
-	printf("Image chargée avec succès : %dx%d\n", sprite.x, sprite.y);
 	return (sprite);
 }
 

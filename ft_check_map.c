@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 23:33:42 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/13 17:19:32 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/02/10 16:57:12 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_check_wall(t_game *game)
 	{
 		if (game->map.full[0][i] != '1'
 			|| game->map.full[height - 1][i] != '1')
-			ft_error("The wall is not 1!", game);
+			ft_error("The map is not surrounded by wall!", game);
 		i++;
 	}
 	i = 0;
@@ -33,7 +33,7 @@ void	ft_check_wall(t_game *game)
 	{
 		if (game->map.full[i][0] != '1'
 			|| game->map.full[i][line - 1] != '1')
-			ft_error("The wall is not 1!", game);
+			ft_error("The map is not surrounded by wall!", game);
 		i++;
 	}
 }

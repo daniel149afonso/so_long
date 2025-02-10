@@ -13,7 +13,7 @@ void ft_display_score(t_game *game)
 
 
 
-flood fill: 
+flood fill:
     //ft_put_map(game->map.full);
 	//write(1, "\n", 1);
 	//printf("Collect: %d, Exit: %d\n", game->map.collect, game->map.exit); debug
@@ -23,3 +23,12 @@ ft_player_movement:
         ft_put_map(game->map.full);
 		printf("y: %d, x: %d\n", game->map.player.y, game->map.player.x);
 		ft_display_score(game); debogage
+
+so long.c:
+printf("Avant Check:\n");
+	ft_put_map(game->map.full);
+printf("Après Check:\n");
+	ft_put_map(game->map.full);
+
+ft_new_sprite:
+printf("Image chargée avec succès : %dx%d\n", sprite.x, sprite.y);

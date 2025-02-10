@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:34:11 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/31 15:35:22 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/02/10 16:49:53 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,12 @@ int	main(int argc, char **argv)
 	ft_check_arguments(argc, argv, game);
 	ft_init_map(argv[1], game);
 	ft_init_vars(game);
-	printf("Avant Check:\n");
-	ft_put_map(game->map.full);
 	ft_check_map(game);
 	set_player_position(game);
 	flood_fill(game, game->map.player);
 	is_item_access(game);
 	ft_init_map(argv[1], game);
 	ft_count_items(game);
-	printf("Après Check:\n");
-	ft_put_map(game->map.full);
 	ft_init_mlx(game);
 	ft_init_sprites(game);
 	mlx_hook(game->win_ptr, KeyPress, KeyPressMask, ft_handle_input, game);
@@ -56,4 +52,8 @@ int	main(int argc, char **argv)
 	ft_free_all_memory(game);
 	return (0);
 }
-//mlx_hook: permet de se connecter a des events
+//mlx_hook: permet de gérer les events
+//Keypress appuie sur une touche clavier
+//Destroy gere les events liés à la fermeture de la fenetre
+//Expose redessine la fenetre apres avoir ete masque ou reduite
+//mlx_loop: lance la boucle infini d'events

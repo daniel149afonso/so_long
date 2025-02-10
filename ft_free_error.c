@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 14:07:49 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/02 16:57:14 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/02/10 16:37:23 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	ft_free_map(t_game *game)
 void	ft_error(char *msg, t_game *game)
 {
 	ft_putstr_fd(msg, 2);
+	ft_putstr_fd("\n", 2);
 	ft_free_map(game);
 	exit(EXIT_FAILURE);
 }
