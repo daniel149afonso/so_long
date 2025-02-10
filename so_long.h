@@ -6,7 +6,7 @@
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:22:59 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/10 17:53:51 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/02/10 21:17:57 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <stdio.h>
 # include <sys/types.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
