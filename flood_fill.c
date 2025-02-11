@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 15:17:46 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/11 15:20:01 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/02/11 16:35:37 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,7 @@ void	is_collect_exit(t_game *game, t_point begin)
 void	is_item_access(t_game *game)
 {
 	if (game->map.collect != 0)
-	{
-		printf("%d\n", )
 		ft_error("Not all collectibles are accessible.", game);
-	}
 	if (game->map.exit != 0)
 		ft_error("The exit is not accessible.", game);
 }

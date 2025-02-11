@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_set_pos.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 17:17:01 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/11 15:18:45 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/02/11 16:17:51 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,24 @@ void	player_position(char c, int i, int j, t_game *game)
 	}
 }
 
+void	set_exit_position(t_game *game)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	while (game->map.full[j])
+	{
+		i = 0;
+		while (game->map.full[j][i])
+		{
+			exit_position(i, j, game);
+			i++;
+		}
+		j++;
+	}
+}
+
 void	set_player_position(t_game *game)
 {
 	int	i;
@@ -43,7 +61,6 @@ void	set_player_position(t_game *game)
 		while (game->map.full[j][i])
 		{
 			player_position(game->map.full[j][i], i, j, game);
-			//exit_position(i, j, game);
 			i++;
 		}
 		j++;

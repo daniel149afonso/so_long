@@ -25,9 +25,11 @@ ft_player_movement:
 		ft_display_score(game); debogage
 
 so long.c:
-printf("Avant Check:\n");
+printf("Avant Check:\n"); // a mettre apres ft_init_vars
 	ft_put_map(game->map.full);
-printf("Après Check:\n");
+printf("Après Check:\n"); // a mettre apres le 2eme ft_init_map
+	ft_put_map(game->map.full);
+printf("Après Retrait exit:\n"); // a mettre apres set_exit_position
 	ft_put_map(game->map.full);
 
 ft_new_sprite:

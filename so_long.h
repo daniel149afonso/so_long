@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:22:59 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/10 23:29:39 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/02/11 16:35:10 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include <stdio.h>
 # include <sys/types.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
@@ -123,6 +122,7 @@ void	ft_count_items(t_game *game);
 
 //SET POSITION
 void	set_player_position(t_game *game);
+void	set_exit_position(t_game *game);
 
 //FLOOD FILL
 void	flood_fill(t_game *game, t_point begin);
