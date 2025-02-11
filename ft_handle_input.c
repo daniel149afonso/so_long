@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:26:52 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/01/31 18:03:27 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/02/11 15:15:50 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ void	ft_show_movements(int nb)
 	write(1, "\n", 1);
 	free(movements);
 	free(sentence);
+}
+
+void	ft_show_exit(t_game *game)
+{
+	game->map.full[game->map.exit_pos.y][game->map.exit_pos.x] = MAP_EXIT;
 }
 
 void	ft_player_move(t_game *game, int new_y, int new_x, int player_sprite)
@@ -49,6 +54,8 @@ void	ft_player_move(t_game *game, int new_y, int new_x, int player_sprite)
 		game->movements++;
 		ft_show_movements(game->movements);
 	}
+	if (game->map.collect == 0)
+		ft_show_exit(game);
 	ft_display_map(game);
 }
 

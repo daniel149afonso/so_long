@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:34:11 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/10 21:58:27 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/02/11 15:17:13 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ int	main(int argc, char **argv)
 	ft_init_map(argv[1], game);
 	ft_init_vars(game);
 	ft_check_map(game);
-	set_player_position(game);
 	flood_fill(game, game->map.player);
 	is_item_access(game);
 	ft_init_map(argv[1], game);
+	set_player_position(game);
 	ft_count_items(game);
 	ft_init_mlx(game);
 	ft_init_sprites(game);
