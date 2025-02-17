@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:22:59 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/11 16:35:10 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:51:02 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,10 +147,11 @@ void	ft_destroy_img(t_game *game);
 
 //UTILS
 int		ft_strlen_v2(const char *s);
-int		get_height_map(char **map);
 void	ft_check_chars(t_game *game);
 void	ft_is_valid_items(t_game *game);
 void	ft_put_map(char **map);
+int		get_height_map(char **map);
+void	is_empty_line(t_game *game, char **map);
 
 //GET_NEXT_LINE
 char	*get_next_line(int fd);

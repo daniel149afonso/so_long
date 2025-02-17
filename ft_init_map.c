@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:46:17 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/02 16:59:55 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/02/17 18:52:18 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,12 @@ void	ft_init_map(char *filename, t_game *game)
 		ft_free_map(game);
 	ft_get_map(game, &map, map_fd);
 	close(map_fd);
+	is_empty_line(game, &map);
 	game->map.full = ft_split(map, '\n');
+	free(map);
 	if (!game->map.full)
 		ft_error("Failed to allocate full map with split function", game);
 	game->map_alloc = true;
-	free(map);
 }
 
 void	ft_get_map(t_game *game, char **map, int map_fd)

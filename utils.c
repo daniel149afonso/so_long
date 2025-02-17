@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 15:16:30 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/10 17:58:33 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/02/17 19:20:43 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,21 @@ void	ft_check_chars(t_game *game)
 	}
 }
 
-//Is_empty_string: verifie si la chaine vide ou seulement espaces
+void	is_empty_line(t_game *game, char **map)
+{
+	if (ft_strlen_v2(*map) == 0)
+	{
+		free(*map);
+		ft_error("The map is empty!", game);
+	}
+	if ((*map)[0] == '\n')
+	{
+		free(*map);
+		ft_error("The map contains an empty first line!", game);
+	}
+	if (ft_strnstr(*map, "\n\n", ft_strlen(*map)) != NULL)
+	{
+		free(*map);
+		ft_error("The map contains an empty line!", game);
+	}
+}
