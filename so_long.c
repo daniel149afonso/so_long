@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:34:11 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/17 18:25:38 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/02/17 19:31:53 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	main(int argc, char **argv)
 	ft_memset(game, 0, sizeof(t_game));
 	ft_check_arguments(argc, argv, game);
 	ft_init_map(argv[1], game);
-	ft_put_map(game->map.full);
 	ft_init_vars(game);
 	ft_check_map(game);
 	set_player_position(game);
