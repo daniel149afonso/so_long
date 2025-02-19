@@ -6,28 +6,53 @@
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:26:52 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/11 16:16:15 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/02/19 21:23:10 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_show_movements(int nb)
+void	ft_player_sprite(t_game *game, int last_x, int last_y)
 {
-	char	*movements;
-	char	*sentence;
+	int	dir_x;
+	int	dir_y;
 
-	movements = ft_itoa(nb);
-	sentence = ft_strjoin("Movements: ", movements);
-	ft_putstr_fd(sentence, 1);
-	write(1, "\n", 1);
-	free(movements);
-	free(sentence);
+	dir_x = game->map.player.x - last_x;
+	dir_y = game->map.player.y - last_y;
+	if (dir_x == -1)
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+			game->player_left.xpm_ptr, game->map.player.x * IMG_WIDTH,
+			game->map.player.y * IMG_HEIGHT);
+	else if (dir_x == 1)
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+			game->player_right.xpm_ptr, game->map.player.x * IMG_WIDTH,
+			game->map.player.y * IMG_HEIGHT);
+	else if (dir_y == -1)
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+			game->player_back.xpm_ptr, game->map.player.x * IMG_WIDTH,
+			game->map.player.y * IMG_HEIGHT);
+	else if (dir_y == 1)
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+			game->player_front.xpm_ptr, game->map.player.x * IMG_WIDTH,
+			game->map.player.y * IMG_HEIGHT);
 }
 
-void	ft_show_exit(t_game *game)
+void	ft_handle_move(t_game *game, int last_x, int last_y)
 {
-	game->map.full[game->map.exit_pos.y][game->map.exit_pos.x] = MAP_EXIT;
+	if (game->map.full[game->map.player.y][game->map.player.x] == COLLECT
+	|| game->map.full[game->map.player.y][game->map.player.x] == FLOOR)
+	{
+		game->map.full[last_y][last_x] = FLOOR;
+		if (game->map.full[game->map.player.y][game->map.player.x] == COLLECT)
+			game->map.collect--;
+		game->movements++;
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+			game->floor.xpm_ptr, last_x * IMG_WIDTH, last_y * IMG_HEIGHT);
+		ft_player_sprite(game, last_x, last_y);
+		ft_show_movements(game->movements);
+	}
+	if (game->map.collect == 0)
+		ft_show_exit(game);
 }
 
 void	ft_player_move(t_game *game, int new_y, int new_x, int player_sprite)
@@ -38,25 +63,16 @@ void	ft_player_move(t_game *game, int new_y, int new_x, int player_sprite)
 	game->player_sprite = player_sprite;
 	last_x = game->map.player.x;
 	last_y = game->map.player.y;
+	if (game->map.full[new_y][new_x] == WALL)
+		return ;
+	game->map.player.x = new_x;
+	game->map.player.y = new_y;
 	if (game->map.full[new_y][new_x] == MAP_EXIT && game->map.collect == 0)
 	{
 		game->movements++;
 		ft_close_game(game);
 	}
-	else if (game->map.full[new_y][new_x] == COLLECT
-	|| game->map.full[new_y][new_x] == FLOOR)
-	{
-		game->map.full[last_y][last_x] = FLOOR;
-		if (game->map.full[new_y][new_x] == COLLECT)
-			game->map.collect--;
-		game->map.player.y = new_y;
-		game->map.player.x = new_x;
-		game->movements++;
-		ft_show_movements(game->movements);
-	}
-	if (game->map.collect == 0)
-		ft_show_exit(game);
-	ft_display_map(game);
+	ft_handle_move(game, last_x, last_y);
 }
 
 int	ft_handle_input(int key, t_game *game)

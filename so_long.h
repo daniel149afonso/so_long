@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:22:59 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/17 18:51:02 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/02/19 21:04:44 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,9 @@ void	ft_show_movements(int nb);
 
 //DISPLAY IMAGE
 int		ft_display_map(t_game *game);
+void	ft_player_sprite(t_game *game, int last_x, int last_y);
+void	ft_show_movements(int nb);
+void	ft_show_exit(t_game *game);
 
 //CLOSE GAME
 int		ft_close_game(t_game *game);

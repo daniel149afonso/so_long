@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_close_game.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:06:54 by daafonso          #+#    #+#             */
-/*   Updated: 2025/01/27 17:21:33 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/02/19 20:58:21 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ int	ft_close_game(t_game *game)
 {
 	ft_show_movements(game->movements);
 	ft_free_all_memory(game);
-	exit(EXIT_FAILURE);
+	exit (EXIT_SUCCESS);
 	return (0);
 }

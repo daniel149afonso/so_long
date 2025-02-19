@@ -3,30 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_display_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:40:19 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/11 15:12:24 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/02/19 21:04:17 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	ft_player_sprite(t_game *game, int i, int j)
-{
-	if (game->player_sprite == FRONT)
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-			game->player_front.xpm_ptr, i * IMG_WIDTH, j * IMG_HEIGHT);
-	else if (game->player_sprite == LEFT)
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-			game->player_left.xpm_ptr, i * IMG_WIDTH, j * IMG_HEIGHT);
-	else if (game->player_sprite == RIGHT)
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-			game->player_right.xpm_ptr, i * IMG_WIDTH, j * IMG_HEIGHT);
-	else if (game->player_sprite == BACK)
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-			game->player_back.xpm_ptr, i * IMG_WIDTH, j * IMG_HEIGHT);
-}
 
 void	ft_find_sprite(t_game *game, int i, int j)
 {
@@ -40,9 +24,9 @@ void	ft_find_sprite(t_game *game, int i, int j)
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
 			game->collect.xpm_ptr, i * IMG_WIDTH, j * IMG_HEIGHT);
 	}
-	else if (game->map.full[j][i] == MAP_EXIT)
+	if (game->map.full[j][i] == PLAYER)
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-			game->exit.xpm_ptr, i * IMG_WIDTH, j * IMG_HEIGHT);
+			game->player_front.xpm_ptr, i * IMG_WIDTH, j * IMG_HEIGHT);
 }
 
 int	ft_display_map(t_game *game)
@@ -50,6 +34,7 @@ int	ft_display_map(t_game *game)
 	int	i;
 	int	j;
 
+	mlx_clear_window(game->mlx_ptr, game->win_ptr);
 	j = 0;
 	while (game->map.full[j])
 	{
@@ -61,6 +46,26 @@ int	ft_display_map(t_game *game)
 		}
 		j++;
 	}
-	ft_player_sprite(game, game->map.player.x, game->map.player.y);
 	return (0);
+}
+
+void	ft_show_exit(t_game *game)
+{
+	game->map.full[game->map.exit_pos.y][game->map.exit_pos.x] = MAP_EXIT;
+	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+		game->exit.xpm_ptr, game->map.exit_pos.x * IMG_WIDTH,
+		game->map.exit_pos.y * IMG_HEIGHT);
+}
+
+void	ft_show_movements(int nb)
+{
+	char	*movements;
+	char	*sentence;
+
+	movements = ft_itoa(nb);
+	sentence = ft_strjoin("Movements: ", movements);
+	ft_putstr_fd(sentence, 1);
+	write(1, "\n", 1);
+	free(movements);
+	free(sentence);
 }
