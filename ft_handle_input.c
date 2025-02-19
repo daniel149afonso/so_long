@@ -6,7 +6,7 @@
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:26:52 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/19 21:23:10 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/02/19 21:58:57 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,3 +89,7 @@ int	ft_handle_input(int key, t_game *game)
 		ft_close_game(game);
 	return (0);
 }
+//Recupere les inputs de user et met a jour
+//la position du joueur et un peu les sprites
+//la map nest plus mise a jour mais seulement les cases
+//correspondante au mouvements

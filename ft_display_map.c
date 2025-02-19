@@ -6,7 +6,7 @@
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:40:19 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/19 21:04:17 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/02/19 21:57:50 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,3 +69,6 @@ void	ft_show_movements(int nb)
 	free(movements);
 	free(sentence);
 }
+//La map est affiche une seule fois au debut et nest plus
+//mis a jour a chaque mouvement du joueur
+//(evite le reaffichage inutile de toute la map)
