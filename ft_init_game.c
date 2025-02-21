@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_game.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 00:55:01 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/10 17:00:54 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/02/21 15:34:06 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,15 @@ void	ft_init_mlx(t_game *game)
 {
 	game->mlx_ptr = mlx_init();
 	if (game->mlx_ptr == NULL)
-		ft_error("Couldn't find mlx pointer. Try it using a VNC.", game);
+		ft_error("Error:\n Couldn't find mlx pointer. Try it using a VNC.",
+			game);
 	game->win_ptr = mlx_new_window(game->mlx_ptr, \
 	game->map.size.x * IMG_WIDTH, game->map.size.y * IMG_HEIGHT, "so_long");
 	if (game->win_ptr == NULL)
 	{
 		mlx_destroy_display(game->mlx_ptr);
 		free(game->mlx_ptr);
-		ft_error("Couldn't create the Window", game);
+		ft_error("Error:\n Couldn't create the Window", game);
 	}
 }
 
@@ -44,7 +45,7 @@ t_image	ft_new_sprite(void *mlx, char *path, t_game *game)
 
 	sprite.xpm_ptr = mlx_xpm_file_to_image(mlx, path, &sprite.x, &sprite.y);
 	if (sprite.xpm_ptr == NULL)
-		ft_error("Couldn't find a sprite. Does it exist?", game);
+		ft_error("Error:\n Couldn't find a sprite. Does it exist?", game);
 	return (sprite);
 }
 

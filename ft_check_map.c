@@ -6,7 +6,7 @@
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 23:33:42 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/10 17:54:15 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/02/21 15:40:54 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_check_wall(t_game *game)
 	{
 		if (game->map.full[0][i] != '1'
 			|| game->map.full[height - 1][i] != '1')
-			ft_error("The map is not surrounded by wall!", game);
+			ft_error("Error:\n The map is not surrounded by wall!", game);
 		i++;
 	}
 	i = 0;
@@ -33,7 +33,7 @@ void	ft_check_wall(t_game *game)
 	{
 		if (game->map.full[i][0] != '1'
 			|| game->map.full[i][line - 1] != '1')
-			ft_error("The map is not surrounded by wall!", game);
+			ft_error("Error:\n The map is not surrounded by wall!", game);
 		i++;
 	}
 }
@@ -50,18 +50,18 @@ void	ft_check_rectangular(t_game *game)
 	{
 		next_line = game->map.full[j];
 		if (first_len != ft_strlen_v2(next_line))
-			ft_error("The lines do not have the same length.", game);
+			ft_error("Error:\n The lines do not have the same length.", game);
 	}
 }
 
 void	ft_check_items(t_game *game)
 {
 	if (game->map.players != 1)
-		ft_error("Only one player is required!", game);
+		ft_error("Error:\n Only one player is required!", game);
 	if (game->map.exit != 1)
-		ft_error("Only one exit is required!", game);
+		ft_error("Error:\n Only one exit is required!", game);
 	if (game->map.collect < 1)
-		ft_error("At least one collectible is required!", game);
+		ft_error("Error:\n At least one collectible is required!", game);
 }
 
 void	ft_count_items(t_game *game)
@@ -94,7 +94,7 @@ void	ft_count_items(t_game *game)
 void	ft_check_map(t_game *game)
 {
 	ft_check_rectangular(game);
+	ft_check_chars(game);
 	ft_check_wall(game);
 	ft_count_items(game);
-	ft_check_chars(game);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:34:11 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/17 19:31:53 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/02/21 15:35:49 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 
 	game = malloc(sizeof(t_game));
 	if (!game)
-		ft_error("Memory allocation for game failed.", game);
+		ft_error("Error:\n Memory allocation for game failed.", game);
 	ft_memset(game, 0, sizeof(t_game));
 	ft_check_arguments(argc, argv, game);
 	ft_init_map(argv[1], game);
