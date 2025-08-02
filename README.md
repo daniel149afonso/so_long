@@ -36,17 +36,17 @@ make re         # rebuild everything
 | `ESC`   | Quit Game  |
 
 ## 📦 Map Rules
--The map must be rectangular
+- The map must be rectangular
 
--Must be surrounded by walls (1)
+- Must be surrounded by walls (1)
 
--Must contain:
+- Must contain:
 
--1 Player (P)
+- 1 Player (P)
 
--1 Exit (E)
+- 1 Exit (E)
 
--≥1 Collectible (C)
+- ≥1 Collectible (C)
 
--No empty lines inside the map
+- No empty lines inside the map
 
