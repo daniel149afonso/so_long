@@ -25,7 +25,7 @@ make fclean     # remove object files and binary
 make re         # rebuild everything
 ```
 ```bash
-./so_long/map.ber
+./so_long map.ber
 ```
 | Key     | Action     |
 | ------- | ---------- |
@@ -34,3 +34,19 @@ make re         # rebuild everything
 | `S` / ↓ | Move Down  |
 | `D` / → | Move Right |
 | `ESC`   | Quit Game  |
+
+## 📦 Map Rules
+-The map must be rectangular
+
+-Must be surrounded by walls (1)
+
+-Must contain:
+
+-1 Player (P)
+
+-1 Exit (E)
+
+-≥1 Collectible (C)
+
+-No empty lines inside the map
+
