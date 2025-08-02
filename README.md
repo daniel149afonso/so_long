@@ -50,3 +50,9 @@ make re         # rebuild everything
 
 - No empty lines inside the map
 
+## 🧠 Notes
+- Built using only authorized functions (no fancy extras!)
+
+- Runs on Linux using MiniLibX
+
+- No memory leaks (thanks, Valgrind!) 🧼
