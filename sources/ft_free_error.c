@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_error.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 14:07:49 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/10 22:36:51 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/10/01 23:05:30 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 void	ft_free_all_memory(t_game *game)
 {

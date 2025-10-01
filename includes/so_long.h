@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:22:59 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/19 21:04:44 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/10/01 23:36:57 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <sys/types.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
-# include "minilibx-linux/mlx.h"
-# include "Libft/libft.h"
+# include "../minilibx-linux/mlx.h"
+# include "../Libft/libft.h"
 
 # define BUFFER_SIZE		32
 

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_set_pos.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 17:17:01 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/11 16:17:51 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/10/01 23:05:52 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 void	exit_position(int i, int j, t_game *game)
 {

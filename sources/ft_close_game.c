@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_close_game.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:06:54 by daafonso          #+#    #+#             */
-/*   Updated: 2025/02/24 16:29:09 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/10/01 23:05:19 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 int	ft_close_game(t_game *game)
 {

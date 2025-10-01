@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_input.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:26:52 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/02/19 21:58:57 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/10/01 23:05:35 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 void	ft_player_sprite(t_game *game, int last_x, int last_y)
 {

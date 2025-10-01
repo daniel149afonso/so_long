@@ -25,7 +25,7 @@ make fclean     # remove object files and binary
 make re         # rebuild everything
 ```
 ```bash
-./so_long map.ber
+./so_long maps/map.ber
 ```
 | Key     | Action     |
 | ------- | ---------- |

@@ -6,11 +6,11 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 17:52:23 by daafonso          #+#    #+#             */
-/*   Updated: 2025/01/31 15:57:58 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/10/01 23:05:59 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 char	*ft_join_and_free(char *text, char *buffer)
 {
