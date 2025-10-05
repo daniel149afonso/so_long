@@ -3,6 +3,8 @@
 **so_long** is a simple but fun 2D tile-based game built with **MiniLibX** as part of the 42 curriculum.  
 Your mission? Collect all the goodies (`C`), avoid walls (`1`), and reach the exit (`E`) — but only once you've grabbed everything! 🚪✨
 
+<img width="426" height="251" alt="Capture d'écran 2025-10-06 003843" src="https://github.com/user-attachments/assets/b3dc9de8-70bc-4fb0-86da-1a118f0fca37"/>
+
 ---
 
 ## 🎮 Features
